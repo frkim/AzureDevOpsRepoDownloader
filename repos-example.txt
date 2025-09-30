@@ -1,0 +1,70 @@
+# ================================================================
+# Azure DevOps Repository List
+# ================================================================
+# 
+# This file contains a list of Azure DevOps repository URLs.
+# One URL per line. Empty lines and lines starting with # are ignored.
+#
+# URL Format:
+#   Modern:  https://dev.azure.com/{organization}/{project}/_git/{repository}
+#   Legacy:  https://{organization}.visualstudio.com/{project}/_git/{repository}
+#
+# Usage:
+#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt"
+#
+# ================================================================
+
+# ================== Production Repositories =====================
+# Main application repositories
+
+https://dev.azure.com/myorganization/MyProductionProject/_git/WebApplication
+https://dev.azure.com/myorganization/MyProductionProject/_git/APIService
+https://dev.azure.com/myorganization/MyProductionProject/_git/DatabaseScripts
+
+# ================== Development Repositories ====================
+# Development and testing repositories
+
+https://dev.azure.com/myorganization/MyDevProject/_git/ExperimentalFeatures
+https://dev.azure.com/myorganization/MyDevProject/_git/TestAutomation
+
+# ================== Infrastructure Repositories =================
+# Infrastructure as Code and configuration
+
+https://dev.azure.com/myorganization/Infrastructure/_git/TerraformScripts
+https://dev.azure.com/myorganization/Infrastructure/_git/AnsiblePlaybooks
+
+# ================== Documentation Repositories ==================
+# Documentation and wikis
+
+https://dev.azure.com/myorganization/Documentation/_git/TechnicalDocs
+https://dev.azure.com/myorganization/Documentation/_git/UserManuals
+
+# ================== Legacy Format (if needed) ===================
+# Some organizations may still use the old visualstudio.com format
+
+# https://myorganization.visualstudio.com/LegacyProject/_git/OldRepository
+
+# ================== Notes =======================================
+# 
+# Tips:
+# 1. Organize repositories by category using comments
+# 2. You can have multiple projects from different organizations
+# 3. The script will create separate directories for each repository
+# 4. Repository names are used as directory names
+# 5. Existing directories are skipped to prevent data loss
+#
+# Example Commands:
+#
+# Basic download:
+#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -PersonalAccessToken "your-pat"
+#
+# Create ZIP files:
+#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -CreateZipArchive -PersonalAccessToken "your-pat"
+#
+# Use REST API (no Git needed):
+#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -Method "RestAPI" -PersonalAccessToken "your-pat"
+#
+# Download specific branch:
+#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -Branch "develop" -PersonalAccessToken "your-pat"
+#
+# ================================================================
