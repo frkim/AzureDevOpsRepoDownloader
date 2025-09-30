@@ -589,3 +589,14 @@ This architecture ensures:
 - ✅ User-friendly feedback
 - ✅ Flexible method selection
 - ✅ Maintainable code structure
+
+---
+
+## 📄 License & Author
+
+**MIT License** - Copyright (c) 2025 François-Xavier Kim
+
+**Disclaimer**: This script is provided "as is", without warranty of any kind, 
+express or implied. Use at your own risk.
+
+**Author**: François-Xavier Kim

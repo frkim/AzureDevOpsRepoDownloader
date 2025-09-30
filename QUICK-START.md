@@ -388,4 +388,16 @@ A: Use Git method, then run `git checkout <commit-hash>` after download.
 
 ---
 
+## 📄 License & Author
+
+**MIT License** - Copyright (c) 2025 François-Xavier Kim
+
+⚠️ **Important Disclaimer**: This script is provided "as is", without warranty of any kind, 
+express or implied. The author shall not be liable for any damages or claims arising from 
+the use of this software. Use at your own risk.
+
+**Author**: François-Xavier Kim
+
+---
+
 **Ready to go?** Pick a scenario above and get started! 🚀

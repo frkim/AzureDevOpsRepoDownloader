@@ -236,3 +236,11 @@ Print or bookmark this cheat sheet for quick reference!
     -Method "RestAPI" `
     -PersonalAccessToken "your-pat"
 ```
+
+---
+
+## 📄 License
+
+**MIT License** | Author: **François-Xavier Kim**
+
+⚠️ **Disclaimer**: Provided "as is", without warranty of any kind. Use at your own risk.

@@ -394,4 +394,15 @@ START: Need to download ADO repositories
 
 ---
 
+## 📄 License & Author
+
+**MIT License** - Copyright (c) 2025 François-Xavier Kim
+
+**Disclaimer**: This documentation and associated script are provided "as is", 
+without warranty of any kind. Use at your own risk.
+
+**Author**: François-Xavier Kim
+
+---
+
 **Still unsure?** Start with **Git Clone** - it's the most versatile and commonly used method.

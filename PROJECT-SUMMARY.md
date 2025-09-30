@@ -406,3 +406,17 @@ Need git history?
 **This is a complete, professional-grade solution ready for immediate use!** 🚀
 
 Start with [QUICK-START.md](QUICK-START.md) and be downloading repositories in under 5 minutes!
+
+---
+
+## 📄 License & Author
+
+**MIT License** - Copyright (c) 2025 François-Xavier Kim
+
+⚠️ **Disclaimer**: This script is provided "as is", without warranty of any kind, 
+express or implied. The author shall not be liable for any claim, damages or other 
+liability arising from the use of this software. Use at your own risk.
+
+**Author**: François-Xavier Kim
+
+See [LICENSE](LICENSE) file for complete license terms.

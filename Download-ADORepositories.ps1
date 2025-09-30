@@ -54,11 +54,21 @@
     .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -Method "Git" -CreateZipArchive -CleanupGitFolder -PersonalAccessToken "your-pat-here"
 
 .NOTES
-    Author: GitHub Copilot
+    Author: François-Xavier Kim
+    License: MIT License
+    
     Prerequisites vary by method:
     - Git: Requires Git to be installed
     - RestAPI: Requires PowerShell 5.1+ or PowerShell Core, PAT token
     - AzureCLI: Requires Azure CLI with devops extension
+    
+    DISCLAIMER:
+    This script is provided "as is", without warranty of any kind, express or implied,
+    including but not limited to the warranties of merchantability, fitness for a
+    particular purpose and noninfringement. In no event shall the author or copyright
+    holders be liable for any claim, damages or other liability, whether in an action
+    of contract, tort or otherwise, arising from, out of or in connection with the
+    script or the use or other dealings in the script.
 #>
 
 [CmdletBinding(DefaultParameterSetName = 'UrlArray')]

@@ -317,4 +317,20 @@ This tool is designed to make your life easier. If you have suggestions for impr
 
 ---
 
+## 📄 License & Author
+
+**MIT License** - Copyright (c) 2025 François-Xavier Kim
+
+⚠️ **Disclaimer**: This script is provided "as is", without warranty of any kind, 
+express or implied, including but not limited to the warranties of merchantability, 
+fitness for a particular purpose and noninfringement. In no event shall the author 
+be liable for any claim, damages or other liability arising from the use of this 
+software. Use at your own risk.
+
+**Author**: François-Xavier Kim
+
+See [LICENSE](LICENSE) file for full license terms.
+
+---
+
 **Ready to start?** Go to [QUICK-START.md](QUICK-START.md) now! 🚀

@@ -434,3 +434,14 @@ The solution is **100% complete and ready for immediate use**.
 ---
 
 **Start downloading repositories now with [QUICK-START.md](QUICK-START.md)!** 🚀
+
+---
+
+## 📄 License & Disclaimer
+
+**MIT License** - Copyright (c) 2025 François-Xavier Kim
+
+This script is provided "as is", without warranty of any kind, express or implied.
+Use at your own risk. See README.md for full license terms.
+
+**Author**: François-Xavier Kim
