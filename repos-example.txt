@@ -1,70 +1,165 @@
 # ================================================================
-# Azure DevOps Repository List
+# Azure DevOps Repository List - Example File
 # ================================================================
 # 
 # This file contains a list of Azure DevOps repository URLs.
 # One URL per line. Empty lines and lines starting with # are ignored.
 #
-# URL Format:
-#   Modern:  https://dev.azure.com/{organization}/{project}/_git/{repository}
-#   Legacy:  https://{organization}.visualstudio.com/{project}/_git/{repository}
+# ⚠️ IMPORTANT: URL Format Guidelines
+# ===================================
+# 
+# ✅ RECOMMENDED FORMAT (Works with ALL methods):
+#   https://dev.azure.com/{organization}/{project}/_git/{repository}
+#   Example: https://dev.azure.com/myorg/myproject/_git/myrepo
 #
-# Usage:
-#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt"
+# ❌ AVOID THIS FORMAT (Causes issues with Git and Azure CLI methods):
+#   https://username@dev.azure.com/{organization}/{project}/_git/{repository}
+#   Example: https://user@dev.azure.com/myorg/myproject/_git/myrepo
+#   Note: Only REST API method accepts URLs with username@ prefix
+#
+# 📋 How to Get the Correct URL from Azure DevOps:
+# =================================================
+# 
+# Method 1: From Repository Page (RECOMMENDED)
+# ---------------------------------------------
+# 1. Open Azure DevOps in your browser
+# 2. Navigate to: Repos > Files
+# 3. Click the "Clone" button (top right)
+# 4. Copy the HTTPS URL shown
+# 5. ⚠️ REMOVE any "username@" prefix if present
+#    Change: https://user@dev.azure.com/org/proj/_git/repo
+#    To:     https://dev.azure.com/org/proj/_git/repo
+#
+# Method 2: From Repository List
+# -------------------------------
+# 1. Go to: Organization > Project > Repos > Repositories
+# 2. Click on repository name
+# 3. Look at browser address bar
+# 4. Copy URL and change format:
+#    From: https://dev.azure.com/org/proj/_git/repo?path=...
+#    To:   https://dev.azure.com/org/proj/_git/repo
+#
+# Method 3: Manual Construction
+# ------------------------------
+# Format: https://dev.azure.com/{org}/{project}/_git/{repo}
+# Example: https://dev.azure.com/contoso/WebApp/_git/frontend
+#
+# 📝 Supported Formats:
+# =====================
+# Modern:  https://dev.azure.com/{organization}/{project}/_git/{repository}
+# Legacy:  https://{organization}.visualstudio.com/{project}/_git/{repository}
+#
+# 🔧 Usage:
+# =========
+#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -PersonalAccessToken "your-pat"
 #
 # ================================================================
 
-# ================== Production Repositories =====================
-# Main application repositories
+# ================== CORRECT FORMAT EXAMPLES =====================
+# ✅ Use these formats - they work with ALL download methods
+# (Git Clone, REST API, and Azure CLI)
 
+# Production repositories
 https://dev.azure.com/myorganization/MyProductionProject/_git/WebApplication
 https://dev.azure.com/myorganization/MyProductionProject/_git/APIService
 https://dev.azure.com/myorganization/MyProductionProject/_git/DatabaseScripts
 
-# ================== Development Repositories ====================
-# Development and testing repositories
-
+# Development repositories
 https://dev.azure.com/myorganization/MyDevProject/_git/ExperimentalFeatures
 https://dev.azure.com/myorganization/MyDevProject/_git/TestAutomation
 
-# ================== Infrastructure Repositories =================
-# Infrastructure as Code and configuration
-
+# Infrastructure repositories
 https://dev.azure.com/myorganization/Infrastructure/_git/TerraformScripts
 https://dev.azure.com/myorganization/Infrastructure/_git/AnsiblePlaybooks
 
-# ================== Documentation Repositories ==================
-# Documentation and wikis
+# Legacy format (still supported)
+https://myorganization.visualstudio.com/LegacyProject/_git/OldRepository
 
-https://dev.azure.com/myorganization/Documentation/_git/TechnicalDocs
-https://dev.azure.com/myorganization/Documentation/_git/UserManuals
+# Multiple organizations in one file
+https://dev.azure.com/contoso/WebApp/_git/Frontend
+https://dev.azure.com/fabricam/MobileApp/_git/iOS
+https://dev.azure.com/adventureworks/DataPlatform/_git/ETLPipelines
 
-# ================== Legacy Format (if needed) ===================
-# Some organizations may still use the old visualstudio.com format
 
-# https://myorganization.visualstudio.com/LegacyProject/_git/OldRepository
+# ================== INCORRECT FORMAT EXAMPLES ===================
+# ❌ DO NOT USE - These formats cause errors with Git and Azure CLI
+# (Only REST API method accepts these)
 
-# ================== Notes =======================================
-# 
-# Tips:
-# 1. Organize repositories by category using comments
-# 2. You can have multiple projects from different organizations
-# 3. The script will create separate directories for each repository
-# 4. Repository names are used as directory names
-# 5. Existing directories are skipped to prevent data loss
+# Wrong: URL with username prefix
+# https://john.doe@dev.azure.com/myorganization/MyProject/_git/MyRepo
+
+# Wrong: URL with email prefix  
+# https://john.doe%40company.com@dev.azure.com/myorganization/MyProject/_git/MyRepo
+
+# ⚠️ If your Azure DevOps clone button shows URLs with username@:
+#    Simply remove the username@ part before adding to this file
+#    OR use -Method "RestAPI" which accepts both formats
+
+# ================== DOWNLOAD METHOD COMPARISON ==================
 #
-# Example Commands:
+# Choose the right method for your needs:
 #
-# Basic download:
-#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -PersonalAccessToken "your-pat"
+# Git Clone (Default) - RECOMMENDED
+#   ✅ Full git history, fastest, works offline
+#   ✅ Best for: Development work
+#   ⚠️ Requires: Clean URLs (no username@ prefix)
+#   Command: .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -PersonalAccessToken "your-pat"
 #
-# Create ZIP files:
+# REST API - SIMPLEST
+#   ✅ No Git installation needed, smallest download
+#   ✅ Best for: Quick snapshots, systems without Git
+#   ✅ Accepts: URLs with or without username@ prefix
+#   Command: .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -Method "RestAPI" -PersonalAccessToken "your-pat"
+#
+# Azure CLI
+#   ✅ Azure AD integration, official Microsoft tool
+#   ✅ Best for: Enterprise environments with SSO
+#   ⚠️ Requires: Azure CLI + DevOps extension, clean URLs
+#   Command: .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -Method "AzureCLI" -PersonalAccessToken "your-pat"
+#
+# ================== MORE EXAMPLE COMMANDS =======================
+#
+# Download with ZIP output:
 #   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -CreateZipArchive -PersonalAccessToken "your-pat"
 #
-# Use REST API (no Git needed):
-#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -Method "RestAPI" -PersonalAccessToken "your-pat"
+# Download with ZIP and remove .git folders:
+#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -Method "Git" -CreateZipArchive -CleanupGitFolder -PersonalAccessToken "your-pat"
 #
 # Download specific branch:
 #   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -Branch "develop" -PersonalAccessToken "your-pat"
+#
+# Download to specific location:
+#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -DestinationPath "C:\Projects" -PersonalAccessToken "your-pat"
+#
+# Use REST API if you have URLs with username prefix:
+#   .\Download-ADORepositories.ps1 -RepositoryListFile "repos-with-username.txt" -Method "RestAPI" -PersonalAccessToken "your-pat"
+#
+# ================== TIPS & BEST PRACTICES =======================
+#
+# 1. ✅ Organize repositories by category using comments
+# 2. ✅ You can have multiple projects from different organizations
+# 3. ✅ The script will create separate directories for each repository
+# 4. ✅ Repository names are used as directory names
+# 5. ✅ Existing directories are skipped to prevent data loss
+# 6. ✅ Always use clean URLs (without username@) for maximum compatibility
+# 7. ✅ Store your PAT in an environment variable for security:
+#        $env:ADO_PAT = "your-pat-token"
+#        .\Download-ADORepositories.ps1 -RepositoryListFile "repos.txt" -PersonalAccessToken $env:ADO_PAT
+# 8. ✅ Test with a single repository first before batch downloading
+# 9. ✅ Use comments (#) to temporarily disable repositories
+# 10. ✅ Keep this file in version control (but never commit PAT tokens!)
+#
+# ================== TROUBLESHOOTING =============================
+#
+# Problem: "Bad hostname" or "URL rejected" error
+# Solution: Remove username@ prefix from your URLs
+#           OR use -Method "RestAPI" instead
+#
+# Problem: "Directory already exists" warning
+# Solution: Delete/rename existing directory or change destination path
+#
+# Problem: "Authentication failed"
+# Solution: Verify your PAT is valid and has Code (Read) permission
+#           Create PAT at: https://dev.azure.com/{org}/_usersSettings/tokens
 #
 # ================================================================

@@ -398,7 +398,17 @@ START: Need to download ADO repositories
 
 ---
 
-## 📄 License & Author
+## � Related Documentation
+
+- **[README.md](README.md)** - Complete script documentation
+- **[QUICK-START.md](QUICK-START.md)** - Quick start guide
+- **[HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md)** - How to get repository URLs from Azure DevOps
+- **[repos-example.txt](repos-example.txt)** - Example repository list file
+- **[TEST-RESULTS.md](TEST-RESULTS.md)** - Test results and validation
+
+---
+
+## �📄 License & Author
 
 **MIT License** - Copyright (c) 2025 François-Xavier Kim
 

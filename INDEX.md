@@ -41,13 +41,37 @@ Welcome! This is your complete guide to the Azure DevOps Repository Downloader.
 
 ---
 
-### 📄 [repos-example.txt](repos-example.txt)
+### � [HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md)
+**Step-by-step guide** to get repository URLs from Azure DevOps.
+- Four different methods to get URLs
+- Visual guides with examples
+- URL format validation
+- Troubleshooting URL issues
+- Bulk URL collection scripts
+
+**Best for:** Learning how to find and format repository URLs correctly
+
+---
+
+### �📄 [repos-example.txt](repos-example.txt)
 **Example repository list file** showing the format.
-- URL format examples
+- Correct and incorrect URL format examples
 - Comments support
 - Both Azure DevOps URL formats
+- Method-specific compatibility notes
 
 **Best for:** Creating your own repository list
+
+---
+
+### 📊 [TEST-RESULTS.md](TEST-RESULTS.md)
+**Validation test results** from real-world testing.
+- All methods tested with ZIP output
+- URL format compatibility findings
+- Performance comparisons
+- Recommendations based on test results
+
+**Best for:** Understanding what's been validated
 
 ---
 
@@ -81,6 +105,7 @@ Welcome! This is your complete guide to the Azure DevOps Repository Downloader.
 
 | Task | Document | Section |
 |------|----------|---------|
+| Get repository URLs | [HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md) | Full guide |
 | Install Git | [QUICK-START.md](QUICK-START.md) | Installing Git |
 | Install Azure CLI | [QUICK-START.md](QUICK-START.md) | Installing Azure CLI |
 | Create PAT token | [QUICK-START.md](QUICK-START.md) | Get Your Personal Access Token |
@@ -208,6 +233,12 @@ Azure DevOps Repository Downloader
 ### "How do I create ZIP files?"
 ➜ [QUICK-START.md](QUICK-START.md) - Scenario 3
 
+### "How do I get the repository URLs?"
+➜ [HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md) - Complete guide
+
+### "Why is my URL format wrong?"
+➜ [HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md) - URL Cleanup & Validation
+
 ---
 
 ## 📁 Repository Structure
@@ -221,7 +252,9 @@ Azure DevOps Repository Downloader
 │   ├── README.md                       # Complete reference
 │   ├── QUICK-START.md                  # Quick start guide
 │   ├── METHOD-COMPARISON.md            # Method comparison
-│   └── INDEX.md                        # This file
+│   ├── HOW-TO-GET-URLS.md              # URL guide
+│   ├── INDEX.md                        # This file
+│   └── TEST-RESULTS.md                 # Test validation
 │
 └── 📄 Examples
     └── repos-example.txt               # Example repo list
@@ -238,7 +271,9 @@ Azure DevOps Repository Downloader
 - [Quick Start](QUICK-START.md) - Get started fast
 - [Full README](README.md) - Complete documentation
 - [Method Comparison](METHOD-COMPARISON.md) - Choose your method
+- [How to Get URLs](HOW-TO-GET-URLS.md) - Get repository URLs from Azure DevOps
 - [Example Repo List](repos-example.txt) - URL format example
+- [Test Results](TEST-RESULTS.md) - Validation test results
 
 ### External Resources
 - [Git Download](https://git-scm.com/downloads)

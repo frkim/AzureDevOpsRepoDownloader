@@ -23,6 +23,8 @@ https://dev.azure.com/myorg/project3/_git/repository3
 
 ⚠️ **Important**: Use clean URLs without username prefix (no `username@`) for compatibility with all download methods.
 
+💡 **Not sure how to get URLs?** Check out [HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md) for detailed instructions!
+
 ### Step 3: Run the Script
 
 ```powershell
@@ -375,10 +377,12 @@ Then just run:
 
 ## 📚 Next Steps
 
-1. ✅ **Read the comparison guide**: `METHOD-COMPARISON.md` - Understand which method is best for your needs
-2. ✅ **Read the full README**: `README.md` - Complete documentation with all options
-3. ✅ **Try different methods**: Experiment with Git, REST API, and Azure CLI
-4. ✅ **Automate your workflow**: Create scripts for regular downloads
+1. ✅ **Learn how to get URLs**: [HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md) - Step-by-step guide to get repository URLs from Azure DevOps
+2. ✅ **Read the comparison guide**: [METHOD-COMPARISON.md](METHOD-COMPARISON.md) - Understand which method is best for your needs
+3. ✅ **Read the full README**: [README.md](README.md) - Complete documentation with all options
+4. ✅ **Review example file**: [repos-example.txt](repos-example.txt) - Example repository list with annotations
+5. ✅ **Try different methods**: Experiment with Git, REST API, and Azure CLI
+6. ✅ **Automate your workflow**: Create scripts for regular downloads
 
 ---
 

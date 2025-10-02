@@ -14,6 +14,14 @@ A powerful PowerShell script to download multiple Azure DevOps repositories usin
 - ✅ Comprehensive error handling with friendly error messages
 - ✅ Beautiful colored console output with progress tracking
 
+## 📖 Documentation
+
+- **[README.md](README.md)** - Complete documentation (you are here)
+- **[QUICK-START.md](QUICK-START.md)** - Get started in under 5 minutes
+- **[METHOD-COMPARISON.md](METHOD-COMPARISON.md)** - Detailed comparison of download methods
+- **[HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md)** - Step-by-step guide to get repository URLs from Azure DevOps
+- **[repos-example.txt](repos-example.txt)** - Example repository list file with annotations
+
 ## 📋 Prerequisites
 
 Prerequisites depend on the download method you choose:
@@ -236,6 +244,10 @@ https://dev.azure.com/myorg/project2/_git/repo3
 - Lines starting with `#` are treated as comments
 - **Use clean URLs without username prefix** (e.g., no `username@`) for compatibility with all methods
 
+📖 **Need help getting URLs?** See [HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md) for detailed instructions.
+
+📝 **Example file:** See [repos-example.txt](repos-example.txt) for a complete example with annotations.
+
 ## Supported URL Formats
 
 The script supports both Azure DevOps URL formats:
@@ -263,6 +275,8 @@ Requires URLs **without** username prefix:
 - ❌ `https://username@dev.azure.com/organization/project/_git/repository`
 
 **Recommendation:** Use clean URLs without username prefix for maximum compatibility across all methods.
+
+📖 **Detailed Guide:** See [HOW-TO-GET-URLS.md](HOW-TO-GET-URLS.md) for step-by-step instructions on getting the correct URLs from Azure DevOps.
 
 ## Output
 
