@@ -21,6 +21,8 @@ https://dev.azure.com/myorg/project2/_git/repository2
 https://dev.azure.com/myorg/project3/_git/repository3
 ```
 
+⚠️ **Important**: Use clean URLs without username prefix (no `username@`) for compatibility with all download methods.
+
 ### Step 3: Run the Script
 
 ```powershell
@@ -274,6 +276,32 @@ WARNING: Directory 'C:\repos\myrepo' already exists. Skipping clone.
 **Solution:** The script protects existing data. Either:
 - Delete/rename the existing directory
 - Change `-DestinationPath` to a new location
+
+### "Bad hostname" or "URL rejected" Error (Git Method)
+
+**What you see:**
+```
+fatal: unable to access '...': URL rejected: Bad hostname
+```
+
+**Cause:** Your repository URL contains a username prefix (e.g., `https://username@dev.azure.com/...`)
+
+**Solution:** Remove the username prefix from your URLs:
+```powershell
+# Wrong (Git method will fail)
+https://username@dev.azure.com/org/project/_git/repo
+
+# Correct (works with all methods)
+https://dev.azure.com/org/project/_git/repo
+```
+
+**Alternative:** Use REST API method which accepts URLs with username prefix:
+```powershell
+.\ Download-ADORepositories.ps1 `
+    -RepositoryListFile "repos.txt" `
+    -Method "RestAPI" `
+    -PersonalAccessToken "your-pat"
+```
 
 ---
 

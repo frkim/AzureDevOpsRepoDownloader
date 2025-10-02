@@ -50,6 +50,7 @@ Need git history?
 - ❌ Requires Git installation (~50MB)
 - ❌ Downloads full history (larger than source-only)
 - ❌ Network interruptions can fail the clone
+- ❌ **URL format restriction**: Does not accept URLs with username prefix (e.g., `username@dev.azure.com`)
 
 #### Example
 ```powershell
@@ -96,6 +97,7 @@ downloads/
 - ✅ **Simple setup** (no Git configuration)
 - ✅ **Direct ZIP download** available
 - ✅ **Good for snapshots** and analysis
+- ✅ **URL format flexible**: Accepts URLs with or without username prefix
 
 #### Cons
 - ❌ **No git history** (commits, branches, tags lost)
@@ -158,6 +160,7 @@ downloads/
 - ❌ **More setup steps** than Git
 - ❌ **Slower initial configuration**
 - ❌ **Uses Git under the hood** anyway
+- ❌ **URL format restriction**: Does not accept URLs with username prefix (e.g., `username@dev.azure.com`)
 
 #### Example
 ```powershell
@@ -202,6 +205,7 @@ downloads/
 | **Works Without Git** | ❌ No | ✅ Yes | ❌ No |
 | **API Rate Limits** | ✅ None | ⚠️ Yes | ✅ None |
 | **Submodules Support** | ✅ Yes | ❌ No | ✅ Yes |
+| **URL Format Flexibility** | ⚠️ Clean URLs only | ✅ All formats | ⚠️ Clean URLs only |
 
 Legend: 🟢 Good | 🟡 Medium | 🔴 Limited
 

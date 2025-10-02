@@ -234,6 +234,7 @@ https://dev.azure.com/myorg/project2/_git/repo3
 
 - Empty lines are ignored
 - Lines starting with `#` are treated as comments
+- **Use clean URLs without username prefix** (e.g., no `username@`) for compatibility with all methods
 
 ## Supported URL Formats
 
@@ -241,6 +242,27 @@ The script supports both Azure DevOps URL formats:
 
 1. **Modern format**: `https://dev.azure.com/{organization}/{project}/_git/{repository}`
 2. **Legacy format**: `https://{organization}.visualstudio.com/{project}/_git/{repository}`
+
+### ⚠️ Important: URL Format Compatibility
+
+Different methods have different URL format requirements:
+
+#### ✅ REST API Method - Flexible
+Works with **both** clean URLs and URLs with username prefix:
+- ✅ `https://dev.azure.com/organization/project/_git/repository`
+- ✅ `https://username@dev.azure.com/organization/project/_git/repository`
+
+#### ⚠️ Git Clone Method - Clean URLs Only
+Requires URLs **without** username prefix:
+- ✅ `https://dev.azure.com/organization/project/_git/repository` 
+- ❌ `https://username@dev.azure.com/organization/project/_git/repository` (will fail with "Bad hostname" error)
+
+#### ⚠️ Azure CLI Method - Clean URLs Only
+Requires URLs **without** username prefix:
+- ✅ `https://dev.azure.com/organization/project/_git/repository`
+- ❌ `https://username@dev.azure.com/organization/project/_git/repository`
+
+**Recommendation:** Use clean URLs without username prefix for maximum compatibility across all methods.
 
 ## Output
 
@@ -324,6 +346,17 @@ $env:ADO_PAT = "your-pat-token"
 
 ### Issue: "Directory already exists"
 **Solution**: The script skips existing directories to prevent data loss. Delete or rename them to re-download.
+
+### Issue: Git Clone fails with "Bad hostname" or "URL rejected"
+**Symptoms**: Error message like `fatal: unable to access '...': URL rejected: Bad hostname`
+
+**Cause**: Repository URL contains username prefix (e.g., `https://username@dev.azure.com/...`)
+
+**Solution**: 
+1. Remove the username prefix from your URLs
+2. Change: `https://username@dev.azure.com/org/project/_git/repo`
+3. To: `https://dev.azure.com/org/project/_git/repo`
+4. **Alternative**: Use `-Method "RestAPI"` which accepts URLs with username prefix
 
 ### Issue: Large repository downloads are slow
 **Solution**: 
